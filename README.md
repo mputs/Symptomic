@@ -24,7 +24,7 @@ This section holds the distinct terms to track. This is done in an AND/OR fashio
    
 is interpreted as:
 ```
-    (I AND cough) OR (I AND coughing) OR (I and fever) OR (I and sneeze) OR (I and sneezing)
+    (I AND cough) OR (I AND coughing) OR (I AND fever) OR (I AND sneeze) OR (I AND sneezing)
 ```
 
 #### [output]
