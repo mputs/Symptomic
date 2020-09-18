@@ -26,10 +26,17 @@ class StreamListener(tweepy.StreamListener):
             remove_characters = [",","\n"]
             for c in remove_characters:
                 text = text.replace(c," ")
-            with open("output/"+output, "a", encoding='utf-8') as f:
-                f.write("%s,%s,%s\n" % \
-                (status.created_at,status.user.screen_name,text))
-
+                with open("output/"+output, "a", encoding='utf-8') as f:
+                                f.write("%s,%s,%s,%s,%s,%s,%s\n" % ( \
+                                        status.created_at,\
+                                        status.user.screen_name,\
+                                        text,\
+                                        status.user.location,\
+                                        status.geo,\
+                                        status.coordinates,\
+                                        status.place \
+                                       ))
+  
     def on_error(self, status_code):
         print("Encountered streaming error (", status_code, ")")
         sys.exit()
@@ -58,7 +65,7 @@ api = tweepy.API(auth)
 ### set output
 if not path.exists("output/"+output):
     with open("output/"+output, "w", encoding='utf-8') as f:
-        f.write("date,user,text\n")
+        f.write("date,user,text,location,geo,coordinates,place\n")
 
 
 ### initialize stream
