@@ -26,7 +26,7 @@ class StreamListener(tweepy.StreamListener):
             remove_characters = [",","\n"]
             for c in remove_characters:
                 text = text.replace(c," ")
-                with open("output/"+output, "a", encoding='utf-8') as f:
+            with open("output/"+output, "a", encoding='utf-8') as f:
                                 f.write("%s,%s,%s,%s,%s,%s,%s\n" % ( \
                                         status.created_at,\
                                         status.user.screen_name,\
