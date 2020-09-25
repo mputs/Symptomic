@@ -2,7 +2,7 @@
 import tweepy
 import configparser as CFG
 from os import path
-
+from sys import exc_info
 output = "out.csv"
 
 ### StreamListener 
@@ -68,10 +68,16 @@ if not path.exists("output/"+output):
         f.write("date,user,text,location,geo,coordinates,place\n")
 
 
+
 ### initialize stream
 streamListener = StreamListener()
-stream = tweepy.Stream(auth=api.auth, listener=streamListener,tweet_mode='extended')
 
-### listen
-stream.filter(track=tags)
+try:
+    ### authenticate
+    stream = tweepy.Stream(auth=api.auth, listener=streamListener,tweet_mode='extended')
+    ### listen
+    stream.filter(track=tags)
+except:
+    print("error: ", exc_info()[0])
+    continue;
 
