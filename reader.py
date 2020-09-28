@@ -79,5 +79,4 @@ try:
     stream.filter(track=tags)
 except:
     print("error: ", exc_info()[0])
-    continue;
 
