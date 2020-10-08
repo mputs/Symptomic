@@ -47,7 +47,6 @@ class StreamListener(tweepy.StreamListener):
                 text = text.replace(c," ")
                 
             writeoutput(output, status.created_at, status, text)
-                                       ))
   
     def on_error(self, status_code):
         print("Encountered streaming error (", status_code, ")")
