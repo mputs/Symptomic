@@ -46,7 +46,7 @@ class StreamListener(tweepy.StreamListener):
             for c in remove_characters:
                 text = text.replace(c," ")
                 
-            writeoutput(output, status.created_at, status, text):
+            writeoutput(output, status.created_at, status, text)
                                        ))
   
     def on_error(self, status_code):
